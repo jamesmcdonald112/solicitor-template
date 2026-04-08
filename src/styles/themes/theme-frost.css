@@ -1,0 +1,67 @@
+/* Theme file.
+   Keep palette values and semantic theme overrides here.
+   Do not duplicate global typography, motion, spacing, radius, shadow, or layout tokens. */
+
+/* =============================================================================
+   THEME: FROST
+   Bright cool white base + deep navy accent + very subtle blue undertone
+
+   Character: Crisp, clean, and sharply professional. Like a bright Dublin
+   morning, or a newly-painted Georgian door. The blue undertone in the white
+   prevents the flatness of pure white — it feels considered and editorial
+   rather than clinical. Navy on near-white is maximum contrast, maximum
+   confidence. Bold and bright.
+
+   Inspired by: Linklaters website (bright white, navy — large UK firm clarity),
+                Irish Times digital (cool white, navy, trustworthy civic tone),
+                Patagonia.com (bright white, deep navy, no wasted space)
+   ============================================================================= */
+
+:root {
+  --frost-50:  #ffffff;
+  --frost-100: #f8f9fc;
+  --frost-200: #eef0f6;
+  --frost-300: #dde2ee;
+  --frost-400: #c4cce0;
+  --frost-500: #a0aac8;
+
+  --navy-900: #080e1e;
+  --navy-800: #10182c;
+  --navy-700: #182440;
+  --navy-600: #243460;
+  --navy-500: #344880;
+  --navy-400: #4a60a0;
+  --navy-300: #6878c0;
+
+  --sky-400: #4a8fd0;
+  --sky-500: #2e72b8;
+
+  --red-soft: #c0392b;
+  --red-soft-100: #fdf0ef;
+  --red-soft-300: #e8a09a;
+
+  --color-bg: var(--frost-100);
+  --color-surface: var(--frost-200);
+  --color-surface-alt: var(--frost-300);
+  --color-border: var(--frost-300);
+  --color-border-strong: var(--frost-400);
+
+  --color-text: var(--navy-900);
+  --color-text-muted: var(--navy-700);
+  --color-text-subtle: var(--navy-500);
+  --color-text-on-accent: var(--frost-50);
+
+  --color-accent: var(--navy-700);
+  --color-accent-hover: var(--navy-600);
+  --color-accent-dark: var(--navy-800);
+  --color-accent-subtle: rgba(24, 36, 64, 0.07);
+  --color-accent-border: rgba(24, 36, 64, 0.16);
+
+  --color-input-bg: var(--frost-50);
+  --color-input: var(--frost-400);
+  --color-ring: rgba(24, 36, 64, 0.25);
+
+  --color-destructive: var(--red-soft);
+  --color-destructive-soft: var(--red-soft-100);
+  --color-destructive-border: var(--red-soft-300);
+}

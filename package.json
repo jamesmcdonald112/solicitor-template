@@ -1,0 +1,36 @@
+{
+	"name": "",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"biome:format": "biome format --write .",
+		"biome:lint": "biome lint --write .",
+		"biome:check": "biome check --write .",
+		"test": "vitest run",
+		"test:watch": "vitest"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.6",
+		"@astrojs/netlify": "^7.0.4",
+		"@fontsource/merriweather": "^5.2.11",
+		"@fontsource/open-sans": "^5.2.7",
+		"@tailwindcss/vite": "^4.1.18",
+		"astro": "^6.0.8",
+		"libphonenumber-js": "^1.12.38",
+		"resend": "^6.9.4",
+		"tailwindcss": "^4.1.18",
+		"typescript": "^5.9.3",
+		"zod": "^3.25.76"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.13",
+		"@tailwindcss/typography": "^0.5.19",
+		"prettier": "^3.8.1",
+		"prettier-plugin-astro": "^0.14.1",
+		"vitest": "^4.0.18"
+	}
+}

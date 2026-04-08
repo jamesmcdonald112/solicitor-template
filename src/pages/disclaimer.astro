@@ -1,0 +1,15 @@
+---
+import { disclaimerPageContent } from "../features/legal/content/disclaimer";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`${disclaimerPageContent.title} | ${firm.companyName}`}
+  description={disclaimerPageContent.description}
+  canonicalPath="/disclaimer"
+>
+  <!-- Disclaimer page scaffold.
+       Render disclaimer content here.
+       Use `firm.companyName` where company context is needed. -->
+</BaseLayout>

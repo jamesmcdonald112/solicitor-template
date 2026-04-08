@@ -1,0 +1,39 @@
+body {
+	min-height: 100vh;
+	font-family: var(--font-sans);
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-serif);
+	color: inherit;
+}
+
+/* Optional: smooth scroll (some teams avoid this globally) */
+
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Optional: respect reduced motion more aggressively */
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+
+		animation-iteration-count: 1 !important;
+
+		transition-duration: 0.01ms !important;
+
+		scroll-behavior: auto !important;
+	}
+}

@@ -1,0 +1,66 @@
+/* Theme file.
+   Keep palette values and semantic theme overrides here.
+   Do not duplicate global typography, motion, spacing, radius, shadow, or layout tokens. */
+
+/* =============================================================================
+   THEME: INK
+   Deep charcoal/brown base + warm amber accent
+
+   Character: Like a well-worn leather-bound ledger. Warmer and more organic
+   than Midnight or Obsidian — the brown undertone makes it feel human and
+   considered rather than corporate and cold. The amber accent is richer and
+   more amber than gold — closer to cognac. Distinctive, unusual, memorable.
+
+   Inspired by: Brunello Cucinelli (warm brown luxury),
+                Toast clothing (dark brown + amber, craft aesthetic),
+                Monocle magazine (warm dark editorial)
+   ============================================================================= */
+
+:root {
+  --ink-950: #0c0a08;
+  --ink-900: #141210;
+  --ink-800: #1e1c18;
+  --ink-700: #2c2820;
+  --ink-600: #3e382c;
+  --ink-500: #524a3a;
+  --ink-400: #6e6252;
+
+  --amber-400: #f0b855;
+  --amber-500: #d49030;
+  --amber-600: #b07018;
+  --amber-700: #885408;
+
+  --sand-100: #faf6ee;
+  --sand-200: #f0e8d4;
+  --sand-300: #dfd0b4;
+  --sand-400: #c0ac88;
+
+  --red-500: #ef4444;
+  --red-900: #450a0a;
+  --red-300: #fca5a5;
+
+  --color-bg: var(--ink-950);
+  --color-surface: var(--ink-900);
+  --color-surface-alt: var(--ink-800);
+  --color-border: var(--ink-600);
+  --color-border-strong: var(--ink-500);
+
+  --color-text: var(--sand-100);
+  --color-text-muted: var(--sand-300);
+  --color-text-subtle: var(--sand-400);
+  --color-text-on-accent: var(--ink-950);
+
+  --color-accent: var(--amber-500);
+  --color-accent-hover: var(--amber-400);
+  --color-accent-dark: var(--amber-600);
+  --color-accent-subtle: rgba(212, 144, 48, 0.08);
+  --color-accent-border: rgba(212, 144, 48, 0.2);
+
+  --color-input-bg: var(--ink-800);
+  --color-input: var(--ink-600);
+  --color-ring: rgba(212, 144, 48, 0.4);
+
+  --color-destructive: var(--red-500);
+  --color-destructive-soft: var(--red-900);
+  --color-destructive-border: var(--red-300);
+}

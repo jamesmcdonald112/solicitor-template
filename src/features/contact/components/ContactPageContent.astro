@@ -1,0 +1,29 @@
+---
+import { contactPageContent } from "../content/contact";
+import { firm } from "../../config/firm";
+---
+
+<!-- Contact page content scaffold.
+     Use `contactPageContent` for page copy.
+     Use `firm` for contact details.
+     Render the contact form through the default slot.
+     Layout, ordering, and presentation can be rebuilt as needed. -->
+<section>
+  <!-- Contact page copy goes here.
+       Available content:
+       - `firm.county`
+       - `contactPageContent.title`
+       - `contactPageContent.intro` -->
+
+  <!-- Firm contact details go here.
+       Available contact data:
+       - `firm.address.line1`
+       - `firm.address.city`
+       - `firm.address.country`
+       - `firm.address.eircode`
+       - `firm.phone.phoneHref`
+       - `firm.phone.display` -->
+
+  <!-- Contact form insertion point. -->
+  <slot />
+</section>

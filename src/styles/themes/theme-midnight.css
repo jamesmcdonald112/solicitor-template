@@ -1,0 +1,73 @@
+/* Theme file.
+   Keep palette values and semantic theme overrides here.
+   Do not duplicate global typography, motion, spacing, radius, shadow, or layout tokens. */
+
+/* =============================================================================
+   THEME: MIDNIGHT (Dark — default)
+   Reference: Aupale Vodka (dark base, single gold accent, editorial serif)
+              Unseen Studio (two-colour discipline)
+
+   To activate: in global.css, set @import "./themes/theme-midnight.css"
+   ============================================================================= */
+
+:root {
+  /* ── Palette primitives ────────────────────────────────────────────────────── */
+  --navy-950: #05080f;
+  --navy-900: #0a0f1c;
+  --navy-800: #111827;
+  --navy-700: #1a2540;
+  --navy-600: #243058;
+  --navy-500: #2e3d70;
+  --navy-400: #4a5d9c;
+
+  --gold-400: #e8c97a;
+  --gold-500: #c9a84c;
+  --gold-600: #a88730;
+  --gold-700: #7d6320;
+
+  --cream-100: #faf8f4;
+  --cream-200: #f0ede4;
+  --cream-300: #e0d9c8;
+
+  --neutral-100: #f9fafb;
+  --neutral-200: #e5e7eb;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+
+  --red-500: #ef4444;
+  --red-900: #450a0a;
+  --red-300: #fca5a5;
+
+  /* ── Semantic surface tokens ─────────────────────────────────────────────── */
+  --color-bg: var(--navy-950);
+  --color-surface: var(--navy-900);
+  --color-surface-alt: var(--navy-800);
+  --color-border: var(--navy-600);
+  --color-border-strong: var(--navy-500);
+
+  /* ── Semantic text tokens ────────────────────────────────────────────────── */
+  --color-text: var(--cream-100);
+  --color-text-muted: var(--cream-300);
+  --color-text-subtle: var(--neutral-400);
+  --color-text-on-accent: var(--navy-950);
+
+  /* ── Semantic brand/accent tokens ───────────────────────────────────────── */
+  --color-accent: var(--gold-500);
+  --color-accent-hover: var(--gold-400);
+  --color-accent-dark: var(--gold-600);
+  --color-accent-subtle: rgba(201, 168, 76, 0.08);
+  --color-accent-border: rgba(201, 168, 76, 0.2);
+
+  /* ── Interactive / Form tokens ───────────────────────────────────────────── */
+  --color-input-bg: var(--navy-800);
+  --color-input: var(--navy-600);
+  --color-ring: rgba(201, 168, 76, 0.4);
+
+  /* ── Destructive / Error tokens ─────────────────────────────────────────── */
+  --color-destructive: var(--red-500);
+  --color-destructive-soft: var(--red-900);
+  --color-destructive-border: var(--red-300);
+}

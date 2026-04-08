@@ -1,0 +1,67 @@
+/* Theme file.
+   Keep palette values and semantic theme overrides here.
+   Do not duplicate global typography, motion, spacing, radius, shadow, or layout tokens. */
+
+/* =============================================================================
+   THEME: PEARL
+   Bright white base + deep navy text + soft teal-navy accent
+
+   Character: The most open, spacious, and contemporary. Near-white canvas
+   with extreme contrast from deep navy — feels like a premium report or
+   a well-funded tech-adjacent law firm. The teal shift in the navy accent
+   gives it life without colour — it catches the eye without shouting.
+   Very Dublin 2024. Would suit any practice area.
+
+   Inspired by: Arthur Cox rebrand direction (white, clean, confident Irish law),
+                Matheson website (bright, open, premium Irish commercial law),
+                Notion.so (maximum white space, confident negative space use)
+   ============================================================================= */
+
+:root {
+  --pearl-50:  #ffffff;
+  --pearl-100: #fafafa;
+  --pearl-200: #f2f4f6;
+  --pearl-300: #e4e8ee;
+  --pearl-400: #ced4e0;
+  --pearl-500: #aab2c4;
+
+  --navy-900: #060c1a;
+  --navy-800: #0e1628;
+  --navy-700: #162038;
+  --navy-600: #1e2e50;
+  --navy-500: #2a3e6c;
+  --navy-400: #3c5488;
+  --navy-300: #6070a8;
+
+  --teal-navy-400: #2a5080;
+  --teal-navy-500: #1c3e68;
+
+  --red-soft: #c0392b;
+  --red-soft-100: #fdf0ef;
+  --red-soft-300: #e8a09a;
+
+  --color-bg: var(--pearl-100);
+  --color-surface: var(--pearl-200);
+  --color-surface-alt: var(--pearl-300);
+  --color-border: var(--pearl-300);
+  --color-border-strong: var(--pearl-400);
+
+  --color-text: var(--navy-900);
+  --color-text-muted: var(--navy-700);
+  --color-text-subtle: var(--navy-500);
+  --color-text-on-accent: var(--pearl-50);
+
+  --color-accent: var(--navy-600);
+  --color-accent-hover: var(--navy-500);
+  --color-accent-dark: var(--navy-700);
+  --color-accent-subtle: rgba(30, 46, 80, 0.07);
+  --color-accent-border: rgba(30, 46, 80, 0.16);
+
+  --color-input-bg: var(--pearl-50);
+  --color-input: var(--pearl-400);
+  --color-ring: rgba(30, 46, 80, 0.25);
+
+  --color-destructive: var(--red-soft);
+  --color-destructive-soft: var(--red-soft-100);
+  --color-destructive-border: var(--red-soft-300);
+}

@@ -1,0 +1,67 @@
+/* Theme file.
+   Keep palette values and semantic theme overrides here.
+   Do not duplicate global typography, motion, spacing, radius, shadow, or layout tokens. */
+
+/* =============================================================================
+   THEME: TEAL
+   Deep petrol/teal base + pale gold accent
+
+   Character: Unusual, progressive, and quietly sophisticated. The deep teal
+   sits between green and blue — marine, considered, trustworthy. Unlike the
+   cold corporate of Obsidian or the traditional warmth of Ink, this reads as
+   a forward-thinking firm with real depth. Particularly strong for practices
+   that want to signal both expertise and approachability.
+
+   Inspired by: Zara Home (deep teal, restrained luxury),
+                Farrow & Ball "Inchyra Blue" (deep muted teal, very considered),
+                Hôtel de Crillon Paris (petrol + gold, extraordinary restraint)
+   ============================================================================= */
+
+:root {
+  --teal-950: #050d0e;
+  --teal-900: #091518;
+  --teal-800: #0f2226;
+  --teal-700: #183038;
+  --teal-600: #234450;
+  --teal-500: #30586a;
+  --teal-400: #427888;
+
+  --gold-400: #dab96a;
+  --gold-500: #c09840;
+  --gold-600: #9e7a25;
+  --gold-700: #7c5e10;
+
+  --cloud-100: #f2f6f8;
+  --cloud-200: #e0e8ec;
+  --cloud-300: #c4d4da;
+  --cloud-400: #96b0ba;
+
+  --red-500: #ef4444;
+  --red-900: #450a0a;
+  --red-300: #fca5a5;
+
+  --color-bg: var(--teal-950);
+  --color-surface: var(--teal-900);
+  --color-surface-alt: var(--teal-800);
+  --color-border: var(--teal-600);
+  --color-border-strong: var(--teal-500);
+
+  --color-text: var(--cloud-100);
+  --color-text-muted: var(--cloud-300);
+  --color-text-subtle: var(--cloud-400);
+  --color-text-on-accent: var(--teal-950);
+
+  --color-accent: var(--gold-500);
+  --color-accent-hover: var(--gold-400);
+  --color-accent-dark: var(--gold-600);
+  --color-accent-subtle: rgba(192, 152, 64, 0.08);
+  --color-accent-border: rgba(192, 152, 64, 0.22);
+
+  --color-input-bg: var(--teal-800);
+  --color-input: var(--teal-600);
+  --color-ring: rgba(192, 152, 64, 0.38);
+
+  --color-destructive: var(--red-500);
+  --color-destructive-soft: var(--red-900);
+  --color-destructive-border: var(--red-300);
+}

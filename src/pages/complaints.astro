@@ -1,0 +1,15 @@
+---
+import { complaintsPageContent } from "../features/legal/content/complaints";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`${complaintsPageContent.title} | ${firm.companyName}`}
+  description={complaintsPageContent.description}
+  canonicalPath="/complaints"
+>
+  <!-- Complaints page scaffold.
+       Render complaints procedure content here.
+       Use `firm.companyName` where company context is needed. -->
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import { services } from "../../config/services";
+import { firm } from "../../config/firm";
+import { getLawFirmStructuredData } from "../../config/structured-data";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+	return services.map((service) => ({
+		params: { slug: service.slug },
+		props: { service },
+	}));
+}
+
+const { service } = Astro.props;
+const structuredData = getLawFirmStructuredData();
+---
+
+<BaseLayout
+	title={service.seo.title}
+	description={service.seo.description}
+	canonicalPath={service.seo.canonicalPath}
+	ogType="website"
+	structuredData={structuredData}
+>
+	<!-- Service page scaffold.
+	     Use `service` to build this page.
+	     Available sections include:
+	     - hero content from `service.hero`
+	     - service image from `service.image`
+	     - article content from `service.article`
+	     - process steps from `service.process`
+	     - trust content from `service.trustStrip`
+	     - FAQs from `service.faqs`
+	     - CTA copy from `service.midCta`
+	     - contextual county tag from `firm.county`
+	     Layout and presentation can be rebuilt freely. -->
+</BaseLayout>

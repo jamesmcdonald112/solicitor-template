@@ -1,0 +1,20 @@
+---
+import { thankYouContent } from "../features/contact-form/content/thank-you";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title={`${thankYouContent.seo.title} | ${firm.companyName}`}
+	description={thankYouContent.seo.description}
+	noIndex={true}
+>
+	<!-- Thank-you page scaffold.
+	     Use:
+	     - `thankYouContent.heading`
+	     - `thankYouContent.body`
+	     - `thankYouContent.href`
+	     - `firm.phone.phoneHref`
+	     - `firm.phone.display`
+	     Build the success/confirmation page as needed. -->
+</BaseLayout>

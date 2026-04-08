@@ -1,0 +1,14 @@
+---
+import { cookiePolicyPageContent } from "../features/legal/content/cookie-policy";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`${cookiePolicyPageContent.title} | ${firm.companyName}`}
+  description={cookiePolicyPageContent.description}
+  canonicalPath="/cookie-policy"
+>
+  <!-- Cookie policy page scaffold.
+       Render cookie policy content here. -->
+</BaseLayout>

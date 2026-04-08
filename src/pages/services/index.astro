@@ -1,0 +1,23 @@
+---
+import { servicesIndexContent } from "../../features/services/content/services-index";
+import { firm } from "../../config/firm";
+import { getLawFirmStructuredData } from "../../config/structured-data";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const structuredData = getLawFirmStructuredData();
+---
+
+<BaseLayout
+	title={`${servicesIndexContent.seo.title} | ${firm.companyName}`}
+	description={servicesIndexContent.seo.description}
+	canonicalPath={servicesIndexContent.seo.canonicalPath}
+	ogType="website"
+	structuredData={structuredData}
+>
+	<!-- Services index page scaffold.
+	     Use `servicesIndexContent` to render:
+	     - hero copy from `servicesIndexContent.hero`
+	     - services listing content
+	     - CTA content from `servicesIndexContent.cta`
+	     Layout and presentation can be rebuilt freely. -->
+</BaseLayout>

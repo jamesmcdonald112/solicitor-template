@@ -1,0 +1,29 @@
+---
+import { actions } from "astro:actions";
+import { contactPageContent } from "../features/contact/content/contact";
+import { firm } from "../config/firm";
+import { getLawFirmStructuredData } from "../config/structured-data";
+import ContactPageContent from "../features/contact/components/ContactPageContent.astro";
+import ContactForm from "../features/contact-form/components/ContactForm.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const prerender = false;
+
+const structuredData = getLawFirmStructuredData();
+
+const result = Astro.getActionResult(actions.contact);
+if (result && !result.error) {
+	return Astro.redirect("/thank-you");
+}
+---
+
+<BaseLayout
+  title={`${contactPageContent.seo.title} | ${firm.companyName}`}
+  description={contactPageContent.seo.description}
+  canonicalPath={contactPageContent.seo.canonicalPath}
+  structuredData={structuredData}
+>
+  <ContactPageContent>
+    <ContactForm />
+  </ContactPageContent>
+</BaseLayout>

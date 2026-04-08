@@ -1,0 +1,26 @@
+---
+import { homePageContent } from "../features/home/content/home";
+import { allServices } from "../features/services/content/services-index";
+import { firm } from "../config/firm";
+import { getLawFirmStructuredData } from "../config/structured-data";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const structuredData = getLawFirmStructuredData();
+
+// Supporting services: wills, family, personal injury (indices 1, 2, 3 from allServices)
+const supportingServices = allServices.slice(1, 7);
+---
+
+<BaseLayout
+	title={`Solicitors in Kilkenny | ${firm.companyName}`}
+	description={homePageContent.seo.description}
+	canonicalPath={homePageContent.seo.canonicalPath}
+	structuredData={structuredData}
+>
+	<!-- Home page scaffold.
+	     Use:
+	     - `homePageContent`
+	     - `supportingServices`
+	     - `firm`
+	     Build the home sections as needed without inheriting the old page structure. -->
+</BaseLayout>

@@ -1,0 +1,66 @@
+/* Theme file.
+   Keep palette values and semantic theme overrides here.
+   Do not duplicate global typography, motion, spacing, radius, shadow, or layout tokens. */
+
+/* =============================================================================
+   THEME: OBSIDIAN
+   Near-black with silver/platinum accent — no warm tones at all
+
+   Character: The most severe and contemporary. Cold, precise, authoritative.
+   Suitable for a commercial litigation or corporate law firm that wants to
+   signal absolute seriousness. Silver rather than gold removes all
+   traditional warmth — this is a modern city firm.
+
+   Inspired by: Weil Gotshal (dark corporate),
+                Bang & Olufsen (near-black + platinum — cold luxury),
+                Rolls-Royce website (black, silver, absolute restraint)
+   ============================================================================= */
+
+:root {
+  --obsidian-950: #070709;
+  --obsidian-900: #0e0e12;
+  --obsidian-800: #16161c;
+  --obsidian-700: #1e1e26;
+  --obsidian-600: #2a2a36;
+  --obsidian-500: #383848;
+  --obsidian-400: #505065;
+
+  --silver-400: #e8e8f0;
+  --silver-500: #c8c8d8;
+  --silver-600: #a0a0b8;
+  --silver-700: #787890;
+
+  --white-100: #f8f8fc;
+  --white-200: #ededf5;
+  --white-300: #d8d8e8;
+  --white-500: #a8a8c0;
+
+  --red-500: #ef4444;
+  --red-900: #450a0a;
+  --red-300: #fca5a5;
+
+  --color-bg: var(--obsidian-950);
+  --color-surface: var(--obsidian-900);
+  --color-surface-alt: var(--obsidian-800);
+  --color-border: var(--obsidian-600);
+  --color-border-strong: var(--obsidian-500);
+
+  --color-text: var(--white-100);
+  --color-text-muted: var(--white-300);
+  --color-text-subtle: var(--white-500);
+  --color-text-on-accent: var(--obsidian-950);
+
+  --color-accent: var(--silver-500);
+  --color-accent-hover: var(--silver-400);
+  --color-accent-dark: var(--silver-600);
+  --color-accent-subtle: rgba(200, 200, 216, 0.06);
+  --color-accent-border: rgba(200, 200, 216, 0.15);
+
+  --color-input-bg: var(--obsidian-800);
+  --color-input: var(--obsidian-600);
+  --color-ring: rgba(200, 200, 216, 0.3);
+
+  --color-destructive: var(--red-500);
+  --color-destructive-soft: var(--red-900);
+  --color-destructive-border: var(--red-300);
+}
