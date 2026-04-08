@@ -1,5 +1,5 @@
 import { GOOGLE_PLACES_API_KEY } from "astro:env/server";
-import { firm } from "../../../config/firm";
+import { firm } from "../src/config/firm";
 
 // The shape of a review we expose to the rest of the app
 export interface Review {

@@ -1,5 +1,5 @@
-import { propertyCard } from "./property";
-import { firm } from "../../../config/firm";
+import { buyingAndSellingProperty } from "./buying-and-selling-property";
+import { firm } from "../firm";
 import {
 	debtCollection,
 	employmentLaw,
@@ -8,7 +8,7 @@ import {
 	personalInjuryLitigation,
 	roadTrafficAccidents,
 	willsAndEstateAdministration,
-} from "../../../config/services";
+} from ".";
 
 // --- Services index page content (hero, cta) ---
 export const servicesIndexContent = {
@@ -33,7 +33,7 @@ export const servicesIndexContent = {
 // --- All services (used by ServiceCardsGrid on the services index page) ---
 // Order here controls the order the cards appear on the page
 export const allServices = [
-	propertyCard,
+	buyingAndSellingProperty,
 	willsAndEstateAdministration,
 	familyAndChildcareLaw,
 	personalInjuryLitigation,

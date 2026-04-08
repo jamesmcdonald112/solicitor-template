@@ -1,17 +1,14 @@
 # AI Prompt Reference
 
-This is a solicitor website.
+This is a solicitor website. Design it as if it were a world-class creative studio or luxury brand site — not a law firm.
 
-Use references from the best designed modern, sleek, professional websites.
-Do not use solicitor websites as the main design reference.
+Take design direction from Awwwards, Dribbble, and The FWA. Reference bold editorial layouts, refined typography, intentional whitespace, and subtle motion. The content is legal; the design is not.
 
-Use the repo structure as a light guide only:
+Design around the content. Let the copy, hierarchy, and page purpose drive layout decisions — not generic templates.
 
-- keep files organized
-- break large files into components
-- reuse backend logic that already exists
+Use CSS. Add GSAP only where motion earns its place.
 
-Use CSS, Tailwind, or both, depending on what gives the best result.
-Use GSAP where motion helps.
+Log every significant design reference in `Markdown/REFERENCES.md` with a note on what it influenced.
 
-Record design references in `Markdown/REFERENCES.md`.
+
+
