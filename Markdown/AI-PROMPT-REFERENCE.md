@@ -85,12 +85,12 @@ Instead:
 - use Awwwards, Dribbble, and strong editorial/service-brand references
 - adapt that level of design quality to a solicitor website
 
-Record the chosen references in [`REFERENCES.md`](/Users/jamesmcdonald/Desktop/new-site/Markdown/REFERENCES.md) so future AI work can reuse the same design direction instead of starting from zero each time.
+Record the chosen references in [`REFERENCES.md`](/Users/jamesmcdonald/Desktop/new-site/Markdown/REFERENCES.md) as you work — this is a working log maintained by AI, not something that needs to be seeded before building. Future AI work can then reuse the same design direction instead of starting from zero each time.
 
 Explain which references influenced:
 
 - layout direction
-- typography direction
+- typography direction (font pairing is chosen as part of the design — select fonts that suit the references and tone, then record the choice)
 - motion direction
 - use of imagery
 - overall tone
