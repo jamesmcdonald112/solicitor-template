@@ -12,43 +12,27 @@ const fieldErrors = isInputError(error) ? error.fields : {};
 
 <ClientRouter />
 
-<!-- Contact form scaffold.
-     Keep structure and behavior hooks here.
-     Rebuild layout and styling as needed. -->
-<form
-	action={actions.contact}
-	method="POST"
->
-	<!-- Form layout wrapper goes here. -->
+<form action={actions.contact} method="POST">
+	<label for="name">Name</label>
+	<input transition:persist id="name" type="text" name="name" autocomplete="name" />
+	<p>{fieldErrors.name?.join(", ")}</p>
 
-	<!-- Name field:
-	     Required text input.
-	     Show validation errors from `fieldErrors.name?.join(", ")`. -->
+	<label for="email">Email</label>
+	<input transition:persist id="email" type="email" name="email" autocomplete="email" />
+	<p>{fieldErrors.email?.join(", ")}</p>
 
-	<!-- Email field:
-	     Required email input.
-	     Show validation errors from `fieldErrors.email?.join(", ")`. -->
+	<label for="phone">Phone</label>
+	<input transition:persist id="phone" type="tel" name="phone" autocomplete="tel" />
+	<p>{fieldErrors.phone?.join(", ")}</p>
 
-	<!-- Phone field:
-	     Required telephone input.
-	     Show validation errors from `fieldErrors.phone?.join(", ")`. -->
-
-	<!-- Service field:
-	     Required select input.
-	     Options should come from `CONTACT_SERVICES`.
-	     Show validation errors from `fieldErrors.service?.join(", ")`. -->
+	<label for="service">Service</label>
 	<select transition:persist id="service" name="service">
 		<option value="">Select a legal service</option>
-		{CONTACT_SERVICES.map((area) => (
-			<option value={area}>{area}</option>
-		))}
+		{CONTACT_SERVICES.map((area) => <option value={area}>{area}</option>)}
 	</select>
+	<p>{fieldErrors.service?.join(", ")}</p>
 
-	<!-- Message field:
-	     Optional textarea.
-	     Use `CONTACT_FIELD_LIMITS.message.max` for maxlength.
-	     Keep the message counter tied to `#message-count`.
-	     Show validation errors from `fieldErrors.message?.join(", ")`. -->
+	<label for="message">Message</label>
 	<span id="message-count">0 / {CONTACT_FIELD_LIMITS.message.max}</span>
 	<textarea
 		transition:persist
@@ -56,43 +40,31 @@ const fieldErrors = isInputError(error) ? error.fields : {};
 		name="message"
 		rows="4"
 		maxlength={CONTACT_FIELD_LIMITS.message.max}
-		aria-describedby="message-count"
-	></textarea>
+		aria-describedby="message-count"></textarea>
+	<p>{fieldErrors.message?.join(", ")}</p>
 
-	<!-- Honeypot spam field:
-	     Keep this hidden from real users.
-	     Bots that fill it should fail validation.
-	     Website field errors come from `fieldErrors.website?.join(", ")`. -->
 	<div aria-hidden="true">
 		<label for="website">Website</label>
-		<input transition:persist id="website" type="text" name="website" tabindex="-1" autocomplete="off" />
+		<input
+			transition:persist
+			id="website"
+			type="text"
+			name="website"
+			tabindex="-1"
+			autocomplete="off"
+		/>
 		<p>{fieldErrors.website?.join(", ")}</p>
 	</div>
 
-	<!-- Required field note goes here. -->
+	{
+		result?.error && !isInputError(result.error) && (
+			<p>Something went wrong. Please try again later.</p>
+		)
+	}
 
-	<!-- Validation error summary / per-field error UI can be rendered here if needed. -->
-	<!-- Available field errors:
-	     name, email, phone, service, message, website -->
-
-	<!-- Server error:
-	     Show this when submission fails for a non-input-validation reason. -->
-	{result?.error && !isInputError(result.error) && (
-		<p>Something went wrong. Please try again later.</p>
-	)}
-
-	<!-- Submit button goes here. -->
 	<button type="submit">Send message</button>
 </form>
 
-<!-- Possibel styling needed for the placehodler text in select. -->
-<!-- <style>
-  /* Show default option in muted colour, like other placeholder text */
-  select:hasle(option[value=""]:checked) {
-    color: var(--color-text-subtle);
-  }
-</style> -->
-
 <script>
-  import "../scripts/messageCounter";
+	import "../scripts/messageCounter";
 </script>

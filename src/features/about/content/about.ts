@@ -1,4 +1,4 @@
-import aboutImage from "../../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
+import aboutImage from "../../../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
 
 export const aboutPageContent = {
 	seo: {

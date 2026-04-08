@@ -1,7 +1,5 @@
 ---
 import { aboutPageContent } from "../features/about/content/about";
-import { teamSectionContent } from "../features/about/content/team";
-import { allServices } from "../features/services/content/services-index";
 import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/structured-data";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -15,12 +13,4 @@ const structuredData = getLawFirmStructuredData();
 	canonicalPath={aboutPageContent.seo.canonicalPath}
 	ogType="website"
 	structuredData={structuredData}
->
-	<!-- About page scaffold.
-	     Use:
-	     - `aboutPageContent.hero`
-	     - `aboutPageContent.trustStrip`
-	     - `teamSectionContent`
-	     - `allServices.slice(0, 6)` for services preview if needed
-	     Build the page sections as needed. -->
-</BaseLayout>
+/>

@@ -1,5 +1,5 @@
 import { propertyCard } from "./property";
-import { firm } from "../firm";
+import { firm } from "../../../config/firm";
 import {
 	debtCollection,
 	employmentLaw,
@@ -8,7 +8,7 @@ import {
 	personalInjuryLitigation,
 	roadTrafficAccidents,
 	willsAndEstateAdministration,
-} from "../services";
+} from "../../../config/services";
 
 // --- Services index page content (hero, cta) ---
 export const servicesIndexContent = {

@@ -1,6 +1,6 @@
-import homeModernIcon from "../../assets/icons/homeModernIcon.svg?raw";
-import propertyImage from "../../assets/images/new/house-key-and-figurine.webp";
-import { firm } from "../firm";
+import homeModernIcon from "../../../assets/icons/homeModernIcon.svg?raw";
+import propertyImage from "../../../assets/images/new/house-key-and-figurine.webp";
+import { firm } from "../../../config/firm";
 
 export const homePageContent = {
 	seo: {

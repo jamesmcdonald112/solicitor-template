@@ -1,8 +1,8 @@
-import documentIcon from "../../assets/icons/documentTextIcon.svg?raw";
-import homeIcon from "../../assets/icons/homeIcon.svg?raw";
-import homeModernIcon from "../../assets/icons/homeModernIcon.svg?raw";
-import propertyImage from "../../assets/images/new/house-key-and-figurine.webp";
-import { firm } from "../firm";
+import documentIcon from "../../../assets/icons/documentTextIcon.svg?raw";
+import homeIcon from "../../../assets/icons/homeIcon.svg?raw";
+import homeModernIcon from "../../../assets/icons/homeModernIcon.svg?raw";
+import propertyImage from "../../../assets/images/new/house-key-and-figurine.webp";
+import { firm } from "../../../config/firm";
 
 export const propertyCard = {
 	title: "Buying & Selling Property",
