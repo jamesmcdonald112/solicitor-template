@@ -1,5 +1,17 @@
-/* Global stylesheet entry point.
-   Import reset, Tailwind, and any future theme or token files here once the design system is defined. */
+/* ── GLOBAL STYLESHEET ─────────────────────────────────────────────────────────
+   ENTRY POINT for all CSS. Imported by BaseLayout.astro.
+
+   IMPORT ORDER (to be completed in Stage 2 — token system build):
+   1. Reset         — browser normalisation
+   2. Theme         — palette primitives + semantic colour overrides (swap theme file to retheme)
+   3. Tokens        — typography, spacing, layout, radius, shadow tokens
+   4. Compositions  — CUBE CSS layout compositions (e.g. .cluster, .sidebar, .stack)
+   5. Utilities     — CUBE CSS utility classes (e.g. .visually-hidden, .flow)
+   6. Blocks        — CUBE CSS block styles (e.g. global heading styles, link styles)
+   7. Exceptions    — overrides and one-off fixes (keep this minimal)
+
+   DO NOT: import Tailwind, add component styles here, or use raw values.
+   Component styles go in scoped <style> blocks inside .astro component files.
+   ────────────────────────────────────────────────────────────────────────────── */
 
 @import "./reset.css";
-@import "tailwindcss";

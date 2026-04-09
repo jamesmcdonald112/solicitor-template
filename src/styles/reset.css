@@ -1,6 +1,14 @@
+/* ── CSS RESET ─────────────────────────────────────────────────────────────────
+   PURPOSE: Normalise browser defaults to a consistent baseline.
+   TOKENS (Stage 2): --font-sans, --font-serif, --color-bg, --color-text will be
+   wired in once the token system is built. Font-family is temporarily set to
+   inherit until tokens.css defines the font stack variables.
+   REDUCED MOTION: Strips all animations/transitions when prefers-reduced-motion is set.
+   ────────────────────────────────────────────────────────────────────────────── */
+
 body {
 	min-height: 100vh;
-	font-family: var(--font-sans);
+	font-family: inherit;
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	text-rendering: optimizeLegibility;
@@ -13,7 +21,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-serif);
+	font-family: inherit;
 	color: inherit;
 }
 

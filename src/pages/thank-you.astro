@@ -1,7 +1,14 @@
 ---
+/*
+  PAGE: Thank You
+  LAYOUT: BaseLayout
+  CONFIG: src/config/thank-you.ts
+  NOTE: ThankYouPage component is a Stage 3 build task.
+        This placeholder keeps the build working and PRG redirect functional.
+  CONNECTED TO: src/middleware/index.ts (redirects here after successful form submission)
+*/
 import { firm } from "../config/firm";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ThankYouPage from "../features/thank-you/components/ThankYouPage.astro";
 import { thankYouContent } from "../config/thank-you";
 ---
 
@@ -10,5 +17,5 @@ import { thankYouContent } from "../config/thank-you";
 	description={thankYouContent.seo.description}
 	noIndex={true}
 >
-	<ThankYouPage />
+	<h1>Thank you for your message. We will be in touch shortly.</h1>
 </BaseLayout>

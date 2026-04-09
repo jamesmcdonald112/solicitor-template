@@ -1,5 +1,13 @@
+/* ── SERVICE: Google Reviews Fetcher ───────────────────────────────────────────
+   Fetches Google Place reviews via the Places API (New) and caches in memory for 24 hours.
+   FILTERS: Only 4+ star reviews with text. Returns empty array on failure (graceful degradation).
+   CONFIG: Uses firm.googlePlaceId from firm.ts and GOOGLE_PLACES_API_KEY env variable.
+   CACHE: Module-level — survives across requests, clears on cold start/deploy.
+   CONNECTED TO: Reviews/Testimonials section component.
+   TEMPLATE SETUP: Each client needs their own Google Cloud project + Place ID. See README.
+   ────────────────────────────────────────────────────────────────────────────── */
 import { GOOGLE_PLACES_API_KEY } from "astro:env/server";
-import { firm } from "../src/config/firm";
+import { firm } from "../../config/firm";
 
 // The shape of a review we expose to the rest of the app
 export interface Review {

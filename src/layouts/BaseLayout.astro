@@ -1,4 +1,21 @@
 ---
+/*
+  LAYOUT: BaseLayout
+  PURPOSE: Root HTML shell for every page. Handles <head>, meta, OG, structured data.
+  IMPORTS: global.css (which chains all other CSS), firm config for SEO defaults.
+  FONTS: Font imports go here (e.g. @fontsource imports) — loaded once, globally.
+  SLOTS: Default slot wraps in <main>. Navbar and Footer are rendered outside the slot.
+  SEO: All meta/OG/Twitter/structured data is handled via typed props.
+  DO NOT: Add page-specific styles here. Add layout-specific compositions in CUBE compositions file.
+  CONNECTED TO: Every page file imports this layout.
+
+  STAGE 3 REMINDER: Before building components, add font imports here:
+    import "@fontsource/open-sans/400.css";
+    import "@fontsource/open-sans/600.css";
+    import "@fontsource/merriweather/400.css";
+    import "@fontsource/merriweather/700.css";
+  Then define --font-sans and --font-serif in tokens.css.
+*/
 import "../styles/global.css";
 import { firm } from "../config/firm";
 

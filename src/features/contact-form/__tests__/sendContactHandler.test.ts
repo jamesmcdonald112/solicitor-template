@@ -4,11 +4,11 @@ import type { ContactInput } from "../schema/contact.schema";
 
 // Mock deliverContact before importing the action
 const mockDeliverContact = vi.fn();
-vi.mock("../../../features/contact-form/service/deliverContact", () => ({
+vi.mock("../service/deliverContact", () => ({
 	deliverContact: mockDeliverContact,
 }));
 
-const { contact } = await import("../../../actions/contact");
+const { contact } = await import("../actions/contact");
 
 // Cast to any to call .handler directly — Astro's defineAction type doesn't
 // expose .handler externally, but our mock and the runtime object both have it.

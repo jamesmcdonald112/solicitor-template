@@ -36,11 +36,12 @@ describe("deliverContact", () => {
 		expect(call[0]).toMatchObject({
 			subject: "New contact form submission — Employment Law",
 		});
-		expect(call[0].text).toContain("Name: John Smith");
-		expect(call[0].text).toContain("Email: john@example.com");
-		expect(call[0].text).toContain("Phone: +353871234567");
-		expect(call[0].text).toContain("Service: Employment Law");
-		expect(call[0].text).toContain("Message: I need help.");
+		expect(call[0].html).toContain("Name:");
+		expect(call[0].html).toContain("John Smith");
+		expect(call[0].html).toContain("john@example.com");
+		expect(call[0].html).toContain("+353871234567");
+		expect(call[0].html).toContain("Employment Law");
+		expect(call[0].html).toContain("I need help.");
 	});
 
 	it("includes the service in the subject line", async () => {
@@ -59,7 +60,7 @@ describe("deliverContact", () => {
 		await deliverContact({ ...validInput, message: "" });
 
 		const [call] = mockSend.mock.calls;
-		expect(call[0].text).toContain("Message: (none)");
+		expect(call[0].html).toContain("(none)");
 	});
 
 	it("propagates errors thrown by resend", async () => {
