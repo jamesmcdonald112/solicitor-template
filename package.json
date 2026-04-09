@@ -16,8 +16,8 @@
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
 		"@astrojs/netlify": "^7.0.4",
-		"@fontsource/merriweather": "^5.2.11",
-		"@fontsource/open-sans": "^5.2.7",
+		"@fontsource/cormorant-garamond": "^5.2.11",
+		"@fontsource/dm-sans": "^5.2.8",
 		"astro": "^6.0.8",
 		"gsap": "^3.14.2",
 		"libphonenumber-js": "^1.12.38",

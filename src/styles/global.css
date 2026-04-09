@@ -1,17 +1,30 @@
-/* ── GLOBAL STYLESHEET ─────────────────────────────────────────────────────────
-   ENTRY POINT for all CSS. Imported by BaseLayout.astro.
+/*
+  GLOBAL STYLESHEET — ENTRY POINT
+  ─────────────────────────────────────────────────────────────────────────────
+  Imported by BaseLayout.astro. This file controls import order.
+  Import order matters — each layer depends on the one above it.
 
-   IMPORT ORDER (to be completed in Stage 2 — token system build):
-   1. Reset         — browser normalisation
-   2. Theme         — palette primitives + semantic colour overrides (swap theme file to retheme)
-   3. Tokens        — typography, spacing, layout, radius, shadow tokens
-   4. Compositions  — CUBE CSS layout compositions (e.g. .cluster, .sidebar, .stack)
-   5. Utilities     — CUBE CSS utility classes (e.g. .visually-hidden, .flow)
-   6. Blocks        — CUBE CSS block styles (e.g. global heading styles, link styles)
-   7. Exceptions    — overrides and one-off fixes (keep this minimal)
+  LOAD ORDER:
+  1. reset        — browser normalisation (no tokens yet)
+  2. theme        — palette primitives (Layer 1 — swap this file to retheme)
+  3. tokens       — semantic design tokens (Layer 2 — references primitives)
+  4. compositions — CUBE CSS layout patterns (references semantic tokens)
+  5. utilities    — CUBE CSS single-job classes (references semantic tokens)
+  6. blocks       — CUBE CSS global element styles (h1-h6, a, p, lists)
+  7. exceptions   — Overrides, one-offs, last resort (keep minimal)
 
-   DO NOT: import Tailwind, add component styles here, or use raw values.
-   Component styles go in scoped <style> blocks inside .astro component files.
-   ────────────────────────────────────────────────────────────────────────────── */
+  DO NOT:
+  - Import Tailwind or any CSS framework
+  - Add component styles here (they live in component <style> blocks)
+  - Use raw values — all values must trace to a token
+  - Add more than one theme import at a time
+  ─────────────────────────────────────────────────────────────────────────────
+*/
 
-@import "./reset.css";
+@import './reset.css';
+@import './themes/theme-cream-navy.css';
+@import './tokens.css';
+@import './compositions.css';
+@import './utilities.css';
+@import './blocks.css';
+@import './exceptions.css';

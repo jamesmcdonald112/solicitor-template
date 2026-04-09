@@ -1,0 +1,123 @@
+/*
+  UTILITIES — CUBE CSS LAYER 4
+  ─────────────────────────────────────────────────────────────────────────────
+  Single-job classes. Each class does exactly one thing.
+  Use these to handle exceptions without writing new CSS.
+
+  Do not add multi-property classes here.
+  Do not add visual styling (colour, typography) unless it is a single property.
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+
+/* ── ACCESSIBILITY ────────────────────────────────────────────────────── */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast) var(--ease-out);
+  z-index: 9999;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
+/* ── TEXT UTILITIES ───────────────────────────────────────────────────── */
+
+.text-center  { text-align: center; }
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }
+
+.text-balance { text-wrap: balance; }
+.text-pretty  { text-wrap: pretty; }
+
+.text-muted   { color: var(--color-text-muted); }
+.text-subtle  { color: var(--color-text-subtle); }
+.text-accent  { color: var(--color-text-accent); }
+.text-inverse { color: var(--color-text-inverse); }
+
+.text-sm      { font-size: var(--font-size-sm); }
+.text-lg      { font-size: var(--font-size-lg); }
+.text-xl      { font-size: var(--font-size-xl); }
+
+.font-serif   { font-family: var(--font-serif); }
+.font-sans    { font-family: var(--font-sans); }
+
+.font-medium  { font-weight: var(--font-weight-medium); }
+.font-bold    { font-weight: var(--font-weight-bold); }
+
+.uppercase    { text-transform: uppercase; }
+.italic       { font-style: italic; }
+
+.tracking-wide    { letter-spacing: var(--letter-spacing-wide); }
+.tracking-wider   { letter-spacing: var(--letter-spacing-wider); }
+.tracking-widest  { letter-spacing: var(--letter-spacing-widest); }
+
+
+/* ── DISPLAY UTILITIES ────────────────────────────────────────────────── */
+
+.block         { display: block; }
+.inline-block  { display: inline-block; }
+.flex          { display: flex; }
+.grid-display  { display: grid; }
+.hidden        { display: none; }
+
+.items-center  { align-items: center; }
+.items-start   { align-items: flex-start; }
+.justify-center   { justify-content: center; }
+.justify-between  { justify-content: space-between; }
+
+.w-full        { width: 100%; }
+.h-full        { height: 100%; }
+.min-h-screen  { min-height: 100dvh; }
+
+.relative      { position: relative; }
+.absolute      { position: absolute; }
+.overflow-hidden { overflow: hidden; }
+
+
+/* ── COLOUR UTILITIES ─────────────────────────────────────────────────── */
+
+.bg-base       { background-color: var(--color-bg); }
+.bg-surface    { background-color: var(--color-bg-surface); }
+.bg-subtle     { background-color: var(--color-bg-subtle); }
+.bg-muted      { background-color: var(--color-bg-muted); }
+.bg-brand      { background-color: var(--color-bg-brand); }
+.bg-inverse    { background-color: var(--color-bg-brand); }
+.bg-accent     { background-color: var(--color-bg-accent); }
+
+
+/* ── SPACING UTILITIES ────────────────────────────────────────────────── */
+
+.mt-auto  { margin-top: auto; }
+.ml-auto  { margin-left: auto; }
+.mx-auto  { margin-inline: auto; }
+
+
+/* ── BORDER UTILITIES ─────────────────────────────────────────────────── */
+
+.border-top    { border-top: 1px solid var(--color-border); }
+.border-bottom { border-bottom: 1px solid var(--color-border); }
+.rounded-md    { border-radius: var(--radius-md); }
+.rounded-lg    { border-radius: var(--radius-lg); }

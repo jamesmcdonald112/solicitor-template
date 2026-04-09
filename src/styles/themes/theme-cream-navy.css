@@ -1,0 +1,110 @@
+/*
+  THEME: Cream Navy (Default)
+  ─────────────────────────────────────────────────────────────────────────────
+  LAYER 1 — PRIMITIVES ONLY.
+  These are raw values. They are never used directly in components.
+  Only semantic tokens in tokens.css consume these via var().
+
+  TO CREATE A NEW CLIENT THEME:
+  1. Duplicate this file and rename it theme-[client-name].css
+  2. Change the primitive values below to match the client palette
+  3. Import the new theme file in global.css instead of this one
+  4. Do not change tokens.css — semantic tokens remain identical across themes
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+:root {
+
+  /* ── COLOUR PRIMITIVES ───────────────────────────────────────────────────
+     Colour family + numeric brightness scale (50–900).
+     50  = lightest tint
+     900 = darkest shade
+     Not every step needs a value — only define what the system uses.
+  ──────────────────────────────────────────────────────────────────────── */
+
+  /* Navy — primary brand colour family */
+  --navy-50:  #eef1f7;
+  --navy-100: #d5dce9;
+  --navy-200: #abbac3;
+  --navy-300: #8096ad;
+  --navy-400: #567297;
+  --navy-500: #3a5678;
+  --navy-600: #2c4260;
+  --navy-700: #1e2f47;
+  --navy-800: #152336;
+  --navy-900: #0d1825;
+
+  /* Gold — accent colour family */
+  --gold-50:  #fdf8ee;
+  --gold-100: #f9edcc;
+  --gold-200: #f2d98a;
+  --gold-300: #e9c35a;
+  --gold-400: #d4a72c;
+  --gold-500: #b8860b;
+  --gold-600: #9a6f08;
+  --gold-700: #7a5706;
+  --gold-800: #5c4004;
+  --gold-900: #3d2a02;
+
+  /* Stone — neutral surface colour family */
+  --stone-50:  #fafaf9;
+  --stone-100: #f5f3f0;
+  --stone-200: #ede9e4;
+  --stone-300: #ddd8d0;
+  --stone-400: #b8b0a4;
+  --stone-500: #8a8278;
+  --stone-600: #5c564e;
+  --stone-700: #3d3832;
+
+  /* Absolute */
+  --white: #ffffff;
+  --black: #0a0a0a;
+
+  /* State colours */
+  --red-500:   #dc2626;
+  --red-100:   #fee2e2;
+  --green-500: #16a34a;
+  --green-100: #dcfce7;
+  --amber-500: #d97706;
+  --amber-100: #fef3c7;
+
+
+  /* ── FONT STACK PRIMITIVES ───────────────────────────────────────────────
+     These are the only font-family values in the entire project.
+     Semantic tokens --font-serif and --font-sans reference these.
+  ──────────────────────────────────────────────────────────────────────── */
+
+  --font-stack-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+  --font-stack-sans:  'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-stack-mono:  'Menlo', 'Monaco', 'Courier New', monospace;
+
+
+  /* ── SIZE PRIMITIVES ─────────────────────────────────────────────────────
+     Base unit: 0.25rem (4px at default browser font size of 16px).
+     Every spacing, font-size, radius, and layout token traces back to this.
+     Named by their rem value for clarity.
+  ──────────────────────────────────────────────────────────────────────── */
+
+  --size-0-5: 0.125rem;  /*   2px */
+  --size-1:   0.25rem;   /*   4px */
+  --size-2:   0.5rem;    /*   8px */
+  --size-3:   0.75rem;   /*  12px */
+  --size-3-5: 0.875rem;  /*  14px */
+  --size-4:   1rem;      /*  16px */
+  --size-5:   1.25rem;   /*  20px */
+  --size-6:   1.5rem;    /*  24px */
+  --size-7:   1.75rem;   /*  28px */
+  --size-8:   2rem;      /*  32px */
+  --size-10:  2.5rem;    /*  40px */
+  --size-12:  3rem;      /*  48px */
+  --size-14:  3.5rem;    /*  56px */
+  --size-16:  4rem;      /*  64px */
+  --size-20:  5rem;      /*  80px */
+  --size-24:  6rem;      /*  96px */
+  --size-28:  7rem;      /* 112px */
+  --size-32:  8rem;      /* 128px */
+  --size-40:  10rem;     /* 160px */
+  --size-48:  12rem;     /* 192px */
+  --size-64:  16rem;     /* 256px */
+
+}

@@ -1,0 +1,126 @@
+/*
+  BLOCKS — CUBE CSS LAYER 5
+  ─────────────────────────────────────────────────────────────────────────────
+  Global element styles. These are the base styles for HTML elements.
+  These apply everywhere — they are not scoped to a component.
+
+  Think of this as the "designed HTML" layer. A heading should look like
+  a heading without needing a class. A blockquote style goes here.
+
+  Components may override these with scoped styles in their own <style> blocks.
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+
+/* ── HEADINGS ─────────────────────────────────────────────────────────── */
+
+h1 {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h2 {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h3 {
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+
+/* ── BODY TEXT ────────────────────────────────────────────────────────── */
+
+p {
+  line-height: var(--line-height-normal);
+}
+
+.flow p {
+  max-width: 65ch;
+}
+
+p.lead {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+}
+
+strong { font-weight: var(--font-weight-bold); }
+em     { font-style: italic; }
+
+small {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-subtle);
+}
+
+
+/* ── LISTS ────────────────────────────────────────────────────────────── */
+
+/* Content lists (inside .flow or article body) */
+.flow ul,
+.flow ol {
+  padding-left: var(--space-lg);
+}
+
+.flow ul { list-style: disc; }
+.flow ol { list-style: decimal; }
+
+.flow li + li {
+  margin-top: var(--space-xs);
+}
+
+
+/* ── BLOCKQUOTE ───────────────────────────────────────────────────────── */
+
+blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-lg);
+  margin-left: 0;
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-style: italic;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+}
+
+
+/* ── HORIZONTAL RULE ──────────────────────────────────────────────────── */
+
+hr {
+  margin-block: var(--space-2xl);
+}
+
+
+/* ── CODE ─────────────────────────────────────────────────────────────── */
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  background: var(--color-bg-subtle);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+}

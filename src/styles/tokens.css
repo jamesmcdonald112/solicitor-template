@@ -1,2 +1,269 @@
-/* Add typography tokens and a semantic design-token system here when the visual direction is established.
-   Keep the naming semantic, minimal, and easy to extend. */
+/*
+  DESIGN TOKENS — LAYER 2: SEMANTIC
+  ─────────────────────────────────────────────────────────────────────────────
+  These tokens give meaning to primitives. They describe ROLE, not appearance.
+
+  RULES FOR THIS FILE:
+  1. Every value must be a var() reference to a primitive — never a raw value
+  2. Tokens are grouped by category. Do not mix categories.
+  3. Components use these tokens. Components never touch primitives.
+  4. To retheme the site, change the theme file. This file never changes.
+  5. New tokens go in the correct category section below.
+  6. If you cannot find a suitable category, add one following the same pattern.
+
+  LOAD ORDER (controlled by global.css):
+  1. reset.css          ← browser normalisation
+  2. theme-[name].css   ← primitives (Layer 1)
+  3. tokens.css         ← semantic tokens (Layer 2, this file)
+  4. compositions.css
+  5. utilities.css
+  6. blocks.css
+  7. exceptions.css
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   COLOUR TOKENS
+   Semantic colour roles. Named by WHERE they are used, not WHAT colour they are.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* Backgrounds */
+  --color-bg:           var(--stone-100);   /* Page background */
+  --color-bg-surface:   var(--white);       /* Cards, panels, raised surfaces */
+  --color-bg-subtle:    var(--stone-200);   /* Subtle surface (alternate rows, sidebar bg) */
+  --color-bg-muted:     var(--stone-300);   /* Muted surface (disabled states) */
+  --color-bg-brand:     var(--navy-900);    /* Dark brand background (hero, footer) */
+  --color-bg-brand-mid: var(--navy-700);    /* Mid brand background */
+  --color-bg-accent:    var(--gold-50);     /* Accent-tinted background */
+  --color-bg-overlay:   var(--navy-900);    /* Modal / drawer overlay */
+
+  /* Text */
+  --color-text:              var(--navy-900);    /* Primary body text */
+  --color-text-muted:        var(--navy-700);    /* Secondary / supporting text */
+  --color-text-subtle:       var(--stone-500);   /* Placeholder, disabled, captions */
+  --color-text-inverse:      var(--white);       /* Text on dark backgrounds */
+  --color-text-accent:       var(--gold-500);    /* Accent text, pull quotes */
+  --color-text-link:         var(--navy-600);    /* Inline link colour */
+  --color-text-link-hover:   var(--gold-500);    /* Link hover */
+
+  /* Brand */
+  --color-brand:        var(--navy-900);    /* Primary brand colour */
+  --color-brand-mid:    var(--navy-700);    /* Mid brand — hover states */
+  --color-brand-light:  var(--navy-500);    /* Light brand — active states */
+  --color-accent:       var(--gold-500);    /* Accent / highlight colour */
+  --color-accent-muted: var(--gold-300);    /* Softened accent */
+  --color-accent-light: var(--gold-50);     /* Very subtle accent bg */
+
+  /* Borders */
+  --color-border:        var(--stone-300);  /* Default border */
+  --color-border-strong: var(--stone-400);  /* Stronger border, dividers */
+  --color-border-brand:  var(--navy-700);   /* Brand-coloured border */
+  --color-border-accent: var(--gold-400);   /* Accent border */
+
+  /* States */
+  --color-error:      var(--red-500);
+  --color-error-bg:   var(--red-100);
+  --color-success:    var(--green-500);
+  --color-success-bg: var(--green-100);
+  --color-warning:    var(--amber-500);
+  --color-warning-bg: var(--amber-100);
+
+  /* Focus */
+  --color-focus: var(--gold-500);    /* Focus ring colour — do not change */
+
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY TOKENS
+   All font decisions live here. Components use these — never font stacks directly.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* Font families */
+  --font-serif: var(--font-stack-serif);     /* Headings, display, blockquotes */
+  --font-sans:  var(--font-stack-sans);      /* Body copy, UI, forms, nav */
+  --font-mono:  var(--font-stack-mono);      /* Code only */
+
+  /* Font sizes — modular scale
+     Use --font-size-base (16px) as the anchor.
+     Go down for small text, up for headings.
+     Named by their semantic size role.
+  */
+  --font-size-2xs: var(--size-2);     /*  8px — legal fine print only */
+  --font-size-xs:  var(--size-3);     /* 12px — labels, badges */
+  --font-size-sm:  var(--size-3-5);   /* 14px — captions, helper text */
+  --font-size-base:var(--size-4);     /* 16px — body copy anchor */
+  --font-size-lg:  var(--size-5);     /* 20px — large body, lead text */
+  --font-size-xl:  var(--size-6);     /* 24px — h4, section intros */
+  --font-size-2xl: var(--size-8);     /* 32px — h3 */
+  --font-size-3xl: var(--size-10);    /* 40px — h2 */
+  --font-size-4xl: var(--size-12);    /* 48px — h1 */
+  --font-size-5xl: var(--size-16);    /* 64px — hero display */
+  --font-size-6xl: var(--size-24);    /* 96px — large display only */
+
+  /* Font weights */
+  --font-weight-light:    300;
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Line heights */
+  --line-height-none:    1;
+  --line-height-tight:   1.15;   /* Display headings */
+  --line-height-snug:    1.3;    /* Subheadings */
+  --line-height-normal:  1.6;    /* Body copy */
+  --line-height-relaxed: 1.75;   /* Long-form text, legal pages */
+  --line-height-loose:   2;      /* Spaced lists */
+
+  /* Letter spacing */
+  --letter-spacing-tighter: -0.04em;  /* Large serif display only */
+  --letter-spacing-tight:   -0.02em;  /* Headings */
+  --letter-spacing-normal:   0em;     /* Body */
+  --letter-spacing-wide:     0.05em;  /* Uppercase labels */
+  --letter-spacing-wider:    0.08em;  /* Small caps */
+  --letter-spacing-widest:   0.15em;  /* Eyebrow text, badges */
+
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SPACING TOKENS
+   Every gap, padding, and margin in the project must use a space token.
+   Always use a space token.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* Scale tokens */
+  --space-2xs: var(--size-1);     /*   4px — icon padding, micro gaps */
+  --space-xs:  var(--size-2);     /*   8px — tight inline spacing */
+  --space-sm:  var(--size-3);     /*  12px — compact padding */
+  --space-md:  var(--size-4);     /*  16px — base element padding */
+  --space-lg:  var(--size-6);     /*  24px — generous element padding */
+  --space-xl:  var(--size-8);     /*  32px — component gaps */
+  --space-2xl: var(--size-12);    /*  48px — section inner padding */
+  --space-3xl: var(--size-16);    /*  64px — section vertical rhythm */
+  --space-4xl: var(--size-24);    /*  96px — large section gaps */
+  --space-5xl: var(--size-32);    /* 128px — hero / full-bleed spacing */
+  --space-6xl: var(--size-40);    /* 160px — maximum section spacing */
+
+  /* Contextual spacers — named by where they are used */
+  --space-section:    var(--space-4xl);   /* Vertical padding on page sections */
+  --space-component:  var(--space-3xl);   /* Internal padding inside components */
+  --space-element:    var(--space-xl);    /* Gap between elements within components */
+  --space-inline:     var(--space-md);    /* Horizontal padding on buttons, tags */
+
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   LAYOUT TOKENS
+   Max-widths and layout constraint values.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  --width-narrow:  42rem;   /*  672px — article / blog text column */
+  --width-content: 72rem;   /* 1152px — standard content width */
+  --width-wide:    90rem;   /* 1440px — full-bleed layout width */
+
+  --gutter:    var(--space-lg);    /* Page horizontal padding — mobile */
+  --gutter-md: var(--space-xl);    /* Page horizontal padding — tablet */
+  --gutter-lg: var(--space-2xl);   /* Page horizontal padding — desktop */
+
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   RADIUS TOKENS (Border Radius)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  --radius-none: 0;
+  --radius-sm:   var(--size-0-5);  /*  2px — subtle rounding */
+  --radius-md:   var(--size-1);    /*  4px — standard component radius */
+  --radius-lg:   var(--size-2);    /*  8px — cards, panels */
+  --radius-xl:   var(--size-4);    /* 16px — large cards */
+  --radius-2xl:  var(--size-8);    /* 32px — pill-like elements */
+  --radius-full: 9999px;           /* Perfect circle / pill */
+
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SHADOW TOKENS
+   Used for elevation. Prefer --shadow-sm for most UI elements.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  --shadow-none: none;
+  --shadow-sm:   0 1px 2px hsl(0 0% 0% / 0.05);
+  --shadow-md:   0 4px 6px hsl(0 0% 0% / 0.07), 0 2px 4px hsl(0 0% 0% / 0.05);
+  --shadow-lg:   0 10px 15px hsl(0 0% 0% / 0.08), 0 4px 6px hsl(0 0% 0% / 0.05);
+  --shadow-xl:   0 20px 25px hsl(0 0% 0% / 0.1), 0 10px 10px hsl(0 0% 0% / 0.04);
+  --shadow-2xl:  0 40px 60px hsl(0 0% 0% / 0.15);
+
+  /* Inset / inner shadows */
+  --shadow-inset-sm: inset 0 1px 2px hsl(0 0% 0% / 0.06);
+  --shadow-inset-md: inset 0 2px 4px hsl(0 0% 0% / 0.1);
+
+  /* Coloured shadows for brand elements */
+  --shadow-brand:  0 8px 32px hsl(from var(--navy-900) h s l / 0.25);
+  --shadow-accent: 0 4px 16px hsl(from var(--gold-500) h s l / 0.3);
+
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MOTION TOKENS
+   Used in CSS transitions AND passed to GSAP as JS values.
+   Import src/scripts/gsap.ts for GSAP animations — it reads these tokens.
+
+   ALWAYS guard animations with:
+   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* Durations */
+  --duration-instant: 100ms;   /* Tooltip appear, focus ring */
+  --duration-fast:    150ms;   /* Hover states */
+  --duration-normal:  250ms;   /* Standard transitions */
+  --duration-slow:    400ms;   /* Page elements, modals */
+  --duration-slower:  600ms;   /* Section entrances */
+  --duration-crawl:   1000ms;  /* Hero animations, counters */
+
+  /* Easing — CSS cubic-bezier equivalents of GSAP eases */
+  --ease-linear:   linear;
+  --ease-out:      cubic-bezier(0.0, 0.0, 0.2, 1);    /* Elements entering */
+  --ease-in:       cubic-bezier(0.4, 0.0, 1, 1);      /* Elements leaving */
+  --ease-inout:    cubic-bezier(0.4, 0.0, 0.2, 1);    /* Bidirectional */
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1); /* Springy, playful */
+  --ease-smooth:   cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth, refined */
+
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   BREAKPOINT REFERENCE
+   These are not custom properties — CSS media queries cannot use var().
+   Document them here for reference. Always use literal px values in @media.
+
+   --bp-sm:  640px   (landscape phone)
+   --bp-md:  768px   (tablet)
+   --bp-lg:  1024px  (small desktop)
+   --bp-xl:  1280px  (standard desktop)
+   --bp-2xl: 1536px  (large desktop)
+
+   Usage in CSS:
+   @media (min-width: 768px) { ... }
+   @media (min-width: 1024px) { ... }
+   ══════════════════════════════════════════════════════════════════════════ */

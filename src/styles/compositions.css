@@ -1,0 +1,170 @@
+/*
+  COMPOSITIONS — CUBE CSS LAYER 3
+  ─────────────────────────────────────────────────────────────────────────────
+  Compositions handle layout structure only.
+  No colour, no typography, no decoration here.
+
+  These classes are CUBE CSS "C" — they define the skeleton.
+  Every composition uses semantic spacing tokens.
+
+  Usage: Add these classes to HTML elements in .astro files.
+  Variants are controlled via data-* attributes, not modifier classes.
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+
+/* ── WRAPPER ──────────────────────────────────────────────────────────────
+   Centers content with consistent horizontal padding.
+   Use on sections and page-level containers.
+──────────────────────────────────────────────────────────────────────── */
+
+.wrapper {
+  width: 100%;
+  max-width: var(--width-content);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding-inline: var(--gutter-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding-inline: var(--gutter-lg);
+  }
+}
+
+.wrapper--narrow {
+  max-width: var(--width-narrow);
+}
+
+.wrapper--wide {
+  max-width: var(--width-wide);
+}
+
+
+/* ── STACK ──────────────────────────────────────────────────────────────
+   Vertical flow with consistent spacing between children.
+   Use for: any vertical sequence of elements.
+──────────────────────────────────────────────────────────────────────── */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack > * + * {
+  margin-top: var(--space-element);
+}
+
+.stack[data-gap="xs"]  > * + * { margin-top: var(--space-xs); }
+.stack[data-gap="sm"]  > * + * { margin-top: var(--space-sm); }
+.stack[data-gap="md"]  > * + * { margin-top: var(--space-md); }
+.stack[data-gap="lg"]  > * + * { margin-top: var(--space-lg); }
+.stack[data-gap="xl"]  > * + * { margin-top: var(--space-xl); }
+.stack[data-gap="2xl"] > * + * { margin-top: var(--space-2xl); }
+.stack[data-gap="3xl"] > * + * { margin-top: var(--space-3xl); }
+
+
+/* ── CLUSTER ──────────────────────────────────────────────────────────────
+   Horizontal group of items that wraps naturally.
+   Use for: tag lists, icon+text pairs, button groups.
+──────────────────────────────────────────────────────────────────────── */
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.cluster[data-gap="xs"]  { gap: var(--space-xs); }
+.cluster[data-gap="sm"]  { gap: var(--space-sm); }
+.cluster[data-gap="md"]  { gap: var(--space-md); }
+.cluster[data-gap="lg"]  { gap: var(--space-lg); }
+.cluster[data-gap="xl"]  { gap: var(--space-xl); }
+
+.cluster[data-align="start"]   { align-items: flex-start; }
+.cluster[data-align="end"]     { align-items: flex-end; }
+.cluster[data-align="stretch"] { align-items: stretch; }
+
+.cluster[data-justify="center"]  { justify-content: center; }
+.cluster[data-justify="between"] { justify-content: space-between; }
+.cluster[data-justify="end"]     { justify-content: flex-end; }
+
+
+/* ── GRID ─────────────────────────────────────────────────────────────────
+   Responsive auto-fit grid. Items flow to fill available space.
+   Use for: service cards, team members, feature lists.
+──────────────────────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  gap: var(--space-element);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+
+.grid[data-min="12rem"] { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.grid[data-min="16rem"] { grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.grid[data-min="20rem"] { grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.grid[data-min="24rem"] { grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); }
+
+.grid[data-gap="sm"]  { gap: var(--space-sm); }
+.grid[data-gap="md"]  { gap: var(--space-md); }
+.grid[data-gap="lg"]  { gap: var(--space-lg); }
+.grid[data-gap="xl"]  { gap: var(--space-xl); }
+.grid[data-gap="2xl"] { gap: var(--space-2xl); }
+
+
+/* ── SIDEBAR ──────────────────────────────────────────────────────────────
+   Two-column layout where one column has a fixed minimum width.
+   Use for: aside + content, image + text, icon + description.
+──────────────────────────────────────────────────────────────────────── */
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-element);
+}
+
+.sidebar > :first-child {
+  flex-basis: 20rem;
+  flex-grow: 1;
+}
+
+.sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: min(50%, 30rem);
+}
+
+
+/* ── SECTION ──────────────────────────────────────────────────────────────
+   Vertical section with consistent vertical rhythm.
+   Use on every <section> element in pages.
+──────────────────────────────────────────────────────────────────────── */
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.section[data-size="sm"] { padding-block: var(--space-3xl); }
+.section[data-size="lg"] { padding-block: var(--space-6xl); }
+
+
+/* ── FLOW ─────────────────────────────────────────────────────────────────
+   Adds consistent margin-top between flow content (prose).
+   Use inside article bodies, legal pages, rich text content.
+──────────────────────────────────────────────────────────────────────── */
+
+.flow > * + * {
+  margin-top: var(--space-md);
+}
+
+.flow[data-gap="sm"] > * + * { margin-top: var(--space-sm); }
+.flow[data-gap="lg"] > * + * { margin-top: var(--space-lg); }
+.flow[data-gap="xl"] > * + * { margin-top: var(--space-xl); }

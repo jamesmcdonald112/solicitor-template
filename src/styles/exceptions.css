@@ -1,0 +1,13 @@
+/*
+  EXCEPTIONS — CUBE CSS LAYER 6
+  ─────────────────────────────────────────────────────────────────────────────
+  Overrides, one-offs, and last-resort fixes.
+
+  RULES:
+  - Every rule here must have a comment explaining WHY it is an exception
+  - If you find yourself adding many rules here, a composition or utility is missing
+  - Never use !important unless absolutely unavoidable, and document why
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+/* No exceptions yet. Add sparingly with a comment explaining each one. */
