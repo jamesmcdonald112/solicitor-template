@@ -21,6 +21,7 @@ Astro 6, plain CSS, GSAP, TypeScript, Zod, Resend, Biome, Vitest, Playwright
 - Read `_system/LAYOUT-REFERENCE.md` before building any component
 - Read `_system/COMPONENT-DIRECTION-GUIDE.md` before building any component
 - Visual quality is the primary deliverable — if it looks mediocre, it is wrong
+- Mobile-first: write base styles for mobile, then nest `@media (min-width: Npx)` inside the selector block for larger breakpoints
 
 ## Skills
 For every component, page, or UI build task, load and follow:
