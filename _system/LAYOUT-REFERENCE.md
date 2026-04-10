@@ -154,6 +154,34 @@ For most components, only two breakpoints are needed:
 Adding more than two breakpoints to a component is usually a sign
 the layout is too complex. Simplify first.
 
+### Media query nesting — required pattern
+
+Always nest `@media` queries inside the selector they affect. Never write them at the top level.
+
+```css
+/* ✅ correct */
+.my-component {
+    font-size: var(--font-size-base);
+
+    @media (min-width: 768px) {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* ✗ wrong */
+.my-component {
+    font-size: var(--font-size-base);
+}
+
+@media (min-width: 768px) {
+    .my-component {
+        font-size: var(--font-size-lg);
+    }
+}
+```
+
+This keeps all responsive behaviour co-located with the rule it modifies — easier to read, easier to change.
+
 ---
 
 ## Two-Column Layouts
