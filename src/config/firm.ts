@@ -2,6 +2,7 @@ export const firm = {
 	siteUrl: "https://test-mary-m.netlify.app/",
 	companyName: "Mary Molloy Solicitor",
 	county: "Kilkenny",
+	established: 1979,
 
 	phone: {
 		display: "(056) 776 5829",
