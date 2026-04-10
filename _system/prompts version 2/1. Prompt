@@ -1,0 +1,187 @@
+Your primary job is to design something visually exceptional.
+The code is how you express the design. Not the other way around.
+
+Read these files in this exact order before writing any code:
+
+1. view .claude/skills/frontend-design/SKILL.md
+2. view _system/LAYOUT-REFERENCE.md
+3. view _system/COMPONENT-DIRECTION-GUIDE.md
+4. view src/config/firm.ts
+5. view src/config/nav.ts
+6. view src/config/home.ts
+7. view src/config/ctas.ts
+8. view src/styles/tokens.css
+9. view src/styles/themes/theme-cream-navy.css
+10. view _system/STAGE-3-DESIGN-BRIEF.md
+
+After reading the skill file, commit to this before writing
+any code: what is the most beautiful thing I can build
+within these constraints?
+
+After reading the layout reference, apply the three-layer
+structure to every component without exception:
+- Outer: full-width background + vertical padding
+- Inner: max-width + margin-inline auto + responsive gutters
+- Content: the actual markup
+
+You are building Session 1 — Foundation.
+
+COMPONENTS THIS SESSION:
+- Preloader
+- Button
+- Section
+- Container
+- Navbar
+- Hero
+- Footer
+
+CONTENT SOURCE:
+- firm.companyName = "Mary Molloy Solicitor"
+- firm.phone.display = "(056) 776 5829"
+- firm.address = 2 Rose Inn St, Kilkenny
+- nav = Home, Services, About, Contact
+- hero.eyebrow = "Solicitors in Kilkenny"
+- hero.title = "Clear legal advice, from a firm that knows you"
+- hero.subtitle = "Whether you are buying a home..."
+- hero.ctas.primary = phone number link
+- hero.ctas.secondary = "Our services" → /services
+
+LAYOUT CONCEPTS:
+
+PRELOADER:
+Full viewport, navy background var(--color-bg-brand).
+Logo centred, fades up from slight below and settles.
+Gold rule var(--color-accent) extends beneath logo
+left to right. Brief stillness — let it breathe.
+Two panels split simultaneously: top lifts, bottom drops,
+revealing the site. Total 2 seconds maximum.
+Dispatch preloader:complete event on finish.
+GSAP file: preloader.gsap.ts
+
+BUTTON:
+Three variants: primary, secondary, ghost.
+Square corners — var(--radius-none). No pill shape ever.
+DM Sans, var(--font-size-sm), var(--font-weight-medium),
+var(--letter-spacing-wide), uppercase.
+Padding: var(--space-sm) block, var(--space-xl) inline.
+Primary: var(--color-bg-brand) fill, var(--color-text-inverse),
+  darkens to var(--color-brand-mid) on hover.
+Secondary: transparent, var(--color-brand) border and text,
+  fills var(--color-bg-brand) with inverse text on hover.
+Ghost: transparent, white border and text,
+  fills white with var(--color-brand) text on hover.
+  Ghost is only for use on dark backgrounds.
+No GSAP.
+
+SECTION:
+Pure layout wrapper. No horizontal padding.
+Background and vertical padding only.
+data-theme variants:
+  light   → var(--color-bg)
+  subtle  → var(--color-bg-subtle)
+  dark    → var(--color-bg-brand)
+  accent  → var(--color-bg-accent)
+Default padding-block: var(--space-section).
+data-size="sm" → var(--space-3xl).
+data-size="lg" → var(--space-5xl).
+No GSAP.
+
+CONTAINER:
+Width constraint only. No colour, no vertical spacing.
+Responsive padding-inline at all three breakpoints.
+data-width variants:
+  narrow  → max-width var(--width-narrow)
+  content → max-width var(--width-content) (default)
+  wide    → max-width var(--width-wide)
+Always margin-inline: auto.
+No GSAP.
+
+NAVBAR:
+Fixed, full width, z-index high.
+Transparent background on load — sits over hero image.
+Gains var(--color-bg-brand) background and 1px
+var(--color-border-brand) bottom border on scroll
+past 40px. JS adds .is-scrolled class.
+Logo left — white SVG filter on dark bg.
+Nav links centre-right: uppercase DM Sans, font-size-sm,
+  wide tracking, white, gold underline extends on hover.
+Phone number far right as ghost-style outlined button.
+Hide nav links and phone on mobile — show hamburger only.
+Mobile menu: full-screen navy overlay, large Cormorant
+  Garamond link names (font-size-4xl, light weight)
+  stagger in on open. Address line at bottom.
+GSAP file: navbar.gsap.ts
+
+HERO:
+Full viewport height, 100svh.
+Background: Kilkenny castle photograph behind
+  navy overlay at 72% opacity. Check public/ folder
+  for the hero image — use the Kilkenny castle photo.
+Content left-aligned, pushed to bottom third using
+  display flex align-items flex-end.
+Max-width var(--width-wide), margin-inline auto,
+  responsive gutters.
+Eyebrow: thin gold rule (var(--color-accent), 2rem wide,
+  1px height) + small uppercase DM Sans label in gold.
+  Display flex, align-items center, gap var(--space-md).
+Heading: Cormorant Garamond, font-weight-light,
+  clamp var(--font-size-4xl) to var(--font-size-6xl),
+  letter-spacing-tighter, color var(--color-text-inverse).
+  Use the exact text from home.hero.title.
+Subtitle: DM Sans, font-size-lg, line-height-relaxed,
+  color var(--color-bg-muted), max-width 52ch.
+  Use the exact text from home.hero.subtitle.
+CTAs: flex row, gap var(--space-md).
+  Primary button: phone number → tel link.
+  Secondary button: "Our services" → /services.
+  Both use ghost variant.
+Scroll indicator: thin 1px gold vertical line,
+  absolute bottom centre, animates with subtle
+  pulse CSS animation. Hidden on mobile.
+All content elements start opacity 0 in CSS.
+GSAP animates them in after preloader:complete event.
+Fallback: if no preloader event after 3 seconds, run anyway.
+GSAP file: hero.gsap.ts
+
+FOOTER:
+Background: var(--color-bg-brand).
+Top border: 1px var(--color-border-brand).
+Three columns on desktop via CSS grid 2fr 1fr 1.5fr.
+Single column stacked on mobile.
+Inner container: max-width var(--width-wide), responsive gutters.
+Vertical padding: var(--space-5xl).
+
+Column 1 — Identity:
+  Logo (white filtered SVG), height var(--size-10).
+  Address in font-size-sm, color var(--color-bg-muted),
+    font-style normal, flex column, gap var(--space-2xs).
+  "Get directions" text link in small uppercase gold,
+    border-bottom gold rule, hover brightens.
+
+Column 2 — Navigation:
+  Label "Navigation" in xs uppercase gold letter-spaced.
+  Nav links from nav config: font-size-sm, color bg-muted,
+    hover shifts to text-inverse.
+
+Column 3 — Contact:
+  Label "Contact" in xs uppercase gold letter-spaced.
+  Phone: font-size-lg, font-weight-medium, text-inverse.
+  Email: font-size-sm, color bg-muted.
+  Office hours: font-size-xs, uppercase, color text-subtle.
+
+Sub-footer below 1px border:
+  Copyright left: "© [year] Mary Molloy Solicitor"
+  Legal nav links right from legalNav config.
+  Both in font-size-xs, color text-subtle.
+No GSAP.
+
+RULES:
+- CSS in <style> block inside .astro — no sibling .css files
+- GSAP in sibling .gsap.ts only for animated components
+- No raw values anywhere — tokens only
+- Three-layer layout on every component — no exceptions
+- Read config for all content — no placeholders
+- Wire all components into src/pages/index.astro when done
+- Run npm run build and confirm it passes
+- Read the existing benchmark components if any exist
+  before building — match or exceed that quality level

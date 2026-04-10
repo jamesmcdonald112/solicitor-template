@@ -1,0 +1,272 @@
+Looking at your config files, here is Session 2:
+
+```
+Your primary job is to design something visually exceptional.
+The code is how you express the design. Not the other way around.
+
+Read these files in this exact order before writing any code:
+
+1. view .claude/skills/frontend-design/SKILL.md
+2. view _system/LAYOUT-REFERENCE.md
+3. view _system/COMPONENT-DIRECTION-GUIDE.md
+4. view src/config/home.ts
+5. view src/config/ctas.ts
+6. view src/config/service-areas.ts
+7. view src/styles/tokens.css
+8. view src/styles/themes/theme-cream-navy.css
+9. view _system/STAGE-3-DESIGN-BRIEF.md
+10. view src/components/ui/button/Button.astro
+11. view src/components/layout/section/Section.astro
+12. view src/components/layout/container/Container.astro
+13. view src/components/navbar/Navbar.astro
+14. view src/components/hero/Hero.astro
+
+Read the existing Navbar and Hero as your quality benchmark.
+Every component you build must match or exceed that level
+of craft and attention to detail.
+
+After reading the skill file, commit to this before writing
+any code: what is the most beautiful thing I can build
+within these constraints?
+
+After reading the layout reference, apply the three-layer
+structure to every component without exception.
+
+You are building Session 2 — Homepage Sections.
+
+COMPONENTS THIS SESSION:
+- SectionHeader
+- TrustStrip
+- FeaturedService
+- ServiceCard
+- TestimonialBlock
+- CTAPanel
+
+Wire all components into src/pages/index.astro
+in this order after the Hero:
+TrustStrip → SectionHeader + FeaturedService →
+SectionHeader + ServiceCard list → TestimonialBlock → CTAPanel → Footer
+
+CONTENT SOURCE:
+- home.trustStrip — stats and paragraphs
+- home.featuredService — featured conveyancing section
+- home.supportingServices — eyebrow and title for service grid
+- service-areas.ts — SERVICES array for service card list
+- ctas.ts — defaultCtaPanel for CTA section
+
+LAYOUT CONCEPTS:
+
+SECTIONHEADER:
+Reusable header block used above content sections.
+Left-aligned always — never centred.
+Accepts props: eyebrow, title, body (optional).
+
+Eyebrow: flex row, align-items center, gap var(--space-md).
+  Thin gold rule: 2rem wide, 1px height, var(--color-accent),
+    flex-shrink 0.
+  Label text: DM Sans, font-size-xs, font-weight-medium,
+    letter-spacing-widest, uppercase, color var(--color-accent).
+Heading: Cormorant Garamond, font-weight-light,
+  clamp var(--font-size-2xl) to var(--font-size-4xl),
+  line-height-tight, letter-spacing-tight, color var(--color-text).
+  margin-block-start var(--space-lg).
+Body (optional): DM Sans, font-size-base, line-height-relaxed,
+  color var(--color-text-muted), max-width 55ch.
+  margin-block-start var(--space-md).
+margin-block-end var(--space-3xl) when used above content.
+No GSAP.
+
+TRUSTSTRIP:
+Full-width section, background var(--color-bg-subtle).
+padding-block var(--space-3xl).
+Inner container max-width var(--width-wide), responsive gutters.
+
+Two parts stacked vertically with var(--space-3xl) between:
+
+Part 1 — stat bar:
+Four items in a horizontal flex row.
+Each item separated by 1px vertical line var(--color-border).
+Each item equal width, padding var(--space-xl) inline.
+  Value: Cormorant Garamond, font-weight-light,
+    clamp var(--font-size-4xl) to var(--font-size-5xl),
+    color var(--color-text), display block.
+  Label: DM Sans, font-size-xs, letter-spacing-widest,
+    uppercase, color var(--color-text-subtle),
+    margin-block-start var(--space-xs), display block.
+Stats from home.trustStrip.stats:
+  "46+", "1979", "Kilkenny", "Conveyancing"
+
+Part 2 — editorial two-column text:
+Left column: large Cormorant Garamond heading
+  from home.trustStrip.title,
+  font-size-2xl, font-weight-light, max-width 20ch.
+Right column: first two paragraphs from
+  home.trustStrip.paragraphs in DM Sans,
+  font-size-base, line-height-relaxed,
+  color var(--color-text-muted), max-width 60ch.
+Two columns on desktop 1fr 2fr, single column mobile.
+Gap var(--space-3xl).
+
+GSAP: stat values count up from 0 on scroll into view.
+ScrollTrigger, guard prefers-reduced-motion.
+GSAP file: trust-strip.gsap.ts
+
+FEATUREDSERVICE:
+This is the main conveyancing feature section.
+Background var(--color-bg), padding-block var(--space-section).
+Inner container max-width var(--width-content), responsive gutters.
+
+SectionHeader above with:
+  eyebrow from home.featuredService.eyebrow
+  title from home.featuredService.card.title
+
+Below the header: two columns on desktop, 1fr 1fr,
+  gap var(--space-3xl). Single column mobile.
+
+LEFT COLUMN:
+  Body paragraph from home.featuredService.card.body.
+  DM Sans, font-size-base, line-height-relaxed,
+    color var(--color-text-muted), max-width 55ch.
+  Below that: four key points from
+    home.featuredService.aside.keyPoints.
+  Each point:
+    Thin gold left border 2px var(--color-accent).
+    padding-inline-start var(--space-lg).
+    Heading: DM Sans, font-size-base, font-weight-semibold,
+      color var(--color-text).
+    Body: DM Sans, font-size-sm, color var(--color-text-muted).
+    gap var(--space-xs) between heading and body.
+  Points stacked with gap var(--space-lg) between them.
+  Link below points using Button secondary variant:
+    text from home.featuredService.card.cta.label.
+    href from home.featuredService.card.cta.href.
+
+RIGHT COLUMN:
+  Large display photograph from
+    home.featuredService.card.image.
+  Use Astro Image component.
+  Image fills column width, aspect-ratio 4/3, object-fit cover.
+  No border, no radius — square edge.
+  Subtle shadow var(--shadow-md) below.
+No GSAP.
+
+SERVICECARD:
+Renders the list of supporting services below FeaturedService.
+Full-width editorial list — not a card grid.
+Background var(--color-bg-subtle), padding-block var(--space-section).
+
+SectionHeader above with:
+  eyebrow from home.supportingServices.eyebrow
+  title from home.supportingServices.title
+
+Below header: vertical list of service rows.
+Top border 1px var(--color-border) on the list.
+Each row:
+  border-bottom 1px var(--color-border).
+  padding-block var(--space-lg).
+  Display flex, align-items center, gap var(--space-xl).
+
+  LEFT — number (01, 02, 03...):
+    Cormorant Garamond, font-weight-light,
+    font-size-xl, color var(--color-text-subtle).
+    min-width 3rem, flex-shrink 0.
+
+  CENTRE — service name:
+    Cormorant Garamond,
+    clamp font-size-lg to font-size-2xl,
+    font-weight-normal, color var(--color-text).
+    flex 1.
+
+  RIGHT — arrow →:
+    DM Sans, font-size-sm, color var(--color-accent),
+    uppercase, letter-spacing-wide.
+    flex-shrink 0.
+
+On hover: entire row background shifts to var(--color-bg),
+  number color shifts to var(--color-accent).
+  CSS transition var(--duration-normal) var(--ease-out).
+Entire row is an anchor tag.
+Generate slugs from service names:
+  "Buying and Selling Property" → /services/buying-and-selling-property
+Use SERVICES array from service-areas.ts.
+No images. No cards. No side borders.
+GSAP: rows stagger in on scroll, y 20, opacity 0,
+  stagger 0.08. GSAP file: service-card.gsap.ts
+
+TESTIMONIALBLOCK:
+Background var(--color-bg), padding-block var(--space-6xl).
+Inner container max-width var(--width-content), responsive gutters.
+Content max-width 75ch, margin-inline auto — centred.
+
+Large decorative opening quote mark:
+  Cormorant Garamond, font-size-6xl, color var(--color-accent),
+  line-height 1, display block, margin-block-end var(--space-lg).
+
+Quote text:
+  Cormorant Garamond, italic, font-weight-light,
+  clamp font-size-2xl to font-size-3xl,
+  line-height-relaxed, color var(--color-text).
+  Left border 3px solid var(--color-accent).
+  padding-inline-start var(--space-xl).
+
+Attribution below the quote:
+  Flex row, align-items center, gap var(--space-md).
+  Thin gold rule 2rem, 1px height.
+  Name + role: DM Sans, font-size-xs, font-weight-medium,
+    letter-spacing-widest, uppercase, color var(--color-text-subtle).
+  margin-block-start var(--space-xl).
+
+Use this quote:
+"We review every contract in full before you sign anything.
+If something is unclear or needs to be negotiated, we raise it
+— that is what we are here for."
+Attribution: Mary Molloy, Principal Solicitor
+
+No GSAP. Stillness is the point.
+
+CTAPANEL:
+Full-width section, background var(--color-bg-brand).
+padding-block var(--space-5xl).
+Thin gold rule 1px var(--color-accent) spans full inner
+width at the very top of the content area.
+Inner container max-width var(--width-content), responsive gutters.
+
+Two columns on desktop 3fr 2fr, single column mobile.
+Gap var(--space-3xl).
+
+LEFT COLUMN:
+  Eyebrow: DM Sans, font-size-xs, font-weight-medium,
+    letter-spacing-widest, uppercase, color var(--color-accent).
+    Text: "Get in touch"
+  Heading: Cormorant Garamond, font-weight-light,
+    clamp font-size-2xl to font-size-4xl,
+    line-height-tight, color var(--color-text-inverse).
+    Text from ctas.defaultCtaPanel.title:
+    "Need legal advice you can rely on?"
+
+RIGHT COLUMN — vertically centred:
+  Body: DM Sans, font-size-base, line-height-relaxed,
+    color var(--color-text-muted).
+    Text from ctas.defaultCtaPanel.body.
+    margin-block-end var(--space-xl).
+  Two buttons in flex row, gap var(--space-md), flex-wrap wrap.
+    Button 1: ghost variant, label from globalCtas.call.label,
+      href from globalCtas.call.href.
+    Button 2: ghost variant, label "Contact Us",
+      href "/contact".
+
+GSAP: entire section fades up y 30 opacity 0 on scroll.
+GSAP file: cta-panel.gsap.ts
+
+RULES:
+- CSS in <style> block inside .astro — no sibling .css files
+- GSAP in sibling .gsap.ts only where specified above
+- No raw values anywhere — tokens only
+- Three-layer layout on every component — no exceptions
+- Read config for all content — no placeholders
+- No images on ServiceCard rows
+- No card borders or box shadows on ServiceCard
+- Import and use existing Button, Section, Container components
+- Wire all into src/pages/index.astro when done
+- Run npm run build and confirm it passes
+```
